@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> <!-- esta es la etiqueta root -->
+    
+    <class name="datos.Articulo" table="articulos"> <!-- clase que vamos a mapear o sea la clase y la tabla donde va -->
+
+        <id column="idArticulo" name="idArticulo">
+            <generator class="identity"/>
+        </id>
+
+        <property column="nombre" name="nombre" type="string"/>
+        <property column="precioCompra" name="precioCompra" type="double"/>
+        <property column="precioVentaU" name="precioVentaU" type="double"/>
+        <property column="stock" name="stock" type="integer"/>
+        <property column="cantPorBulto" name="cantPorBulto" type="integer"/>
+        <property column="precioVentaB" name="precioVentaB" type="double"/>
+        
+        <many-to-one name="rubro" class="datos.Rubro">
+            <column name="idRubro" />
+        </many-to-one>
+        
+        <many-to-one name="subRubro" class="datos.SubRubro">
+            <column name="idSubRubro" />
+        </many-to-one>
+        
+        <many-to-one name="proveedor" class="datos.Proveedor">
+            <column name="idProveedor" />
+        </many-to-one>
+
+    </class>
+
+</hibernate-mapping>

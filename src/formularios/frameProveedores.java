@@ -20,6 +20,23 @@ import javax.swing.SwingUtilities;
 public class frameProveedores extends javax.swing.JInternalFrame {
     private boolean hayProveedores=false;
     
+    private Thread subProceso = new Thread(new Runnable(){
+        @Override
+        public void run(){
+            List<Proveedor> lista = new ProveedorDao().traerListaProveedores();
+            DefaultListModel model = new DefaultListModel();
+            for(int i=0; i<lista.size();i++){
+                model.addElement(lista.get(i).getNombre());
+            }
+            lstProveedores.setModel(model);
+            if(lista.size()>0){
+                hayProveedores=true;
+            } else{
+                hayProveedores=false;
+            }
+        }
+    });
+    
     /**
      * Creates new form frameEditarProveedores
      */
@@ -28,22 +45,7 @@ public class frameProveedores extends javax.swing.JInternalFrame {
     }
     
     private void llenarLista(){
-        SwingUtilities.invokeLater(new Runnable(){
-            public void run(){
-                List<Proveedor> lista = new ProveedorDao().traerListaProveedores();
-                
-                DefaultListModel model = new DefaultListModel();
-                for(int i=0; i<lista.size(); i++){
-                    model.addElement(lista.get(i).getIdProveedor()+" - "+lista.get(i).getNombre());
-                }
-                lstProveedores.setModel(model);
-                if(lista.size()>0){
-                    hayProveedores=true;
-                } else{
-                    hayProveedores=false;
-                }
-            }
-        });
+        subProceso.run();
     }
 
     /**

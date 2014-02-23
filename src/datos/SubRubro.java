@@ -6,7 +6,7 @@
 
 package datos;
 
-import java.util.GregorianCalendar;
+import java.util.Calendar;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -20,11 +20,14 @@ public class SubRubro {
     private String nombre;
     private Double precioCompra;
     private Double precioVenta;
-    private GregorianCalendar fecUltimaModif;
+    private Calendar fecUltimaModif;
     private Double ultimoPorc;
-    private Set<Articulo> articulos = new TreeSet<Articulo>();
+    private Set<Articulo> articulos=new TreeSet<Articulo>();;
 
-    public SubRubro(Rubro rubro, String nombre, Double precioCompra, Double precioVenta, GregorianCalendar fecUltimaModif, Double ultimoPorc) {
+    public SubRubro() {
+    }
+
+    public SubRubro(Rubro rubro, String nombre, Double precioCompra, Double precioVenta, Calendar fecUltimaModif, Double ultimoPorc) {
         this.rubro = rubro;
         this.nombre = nombre;
         this.precioCompra = precioCompra;
@@ -33,31 +36,20 @@ public class SubRubro {
         this.ultimoPorc = ultimoPorc;
     }
 
-    public Set<Articulo> getArticulos() {
-        return articulos;
-    }
-
-    public void setArticulos(Set<Articulo> articulos) {
-        this.articulos = articulos;
-    }
-    
-    public SubRubro() {
-    }
-
-    public Rubro getRubro() {
-        return this.rubro;
-    }
-
-    public void setRubro(Rubro rubro) {
-        this.rubro = rubro;
-    }
-
     public int getIdSubRubro() {
         return idSubRubro;
     }
 
     private void setIdSubRubro(int idSubRubro) {
         this.idSubRubro = idSubRubro;
+    }
+
+    public Rubro getRubro() {
+        return rubro;
+    }
+
+    public void setRubro(Rubro rubro) {
+        this.rubro = rubro;
     }
 
     public String getNombre() {
@@ -84,11 +76,11 @@ public class SubRubro {
         this.precioVenta = precioVenta;
     }
 
-    public GregorianCalendar getFecUltimaModif() {
+    public Calendar getFecUltimaModif() {
         return fecUltimaModif;
     }
 
-    public void setFecUltimaModif(GregorianCalendar fecUltimaModif) {
+    public void setFecUltimaModif(Calendar fecUltimaModif) {
         this.fecUltimaModif = fecUltimaModif;
     }
 
@@ -98,6 +90,14 @@ public class SubRubro {
 
     public void setUltimoPorc(Double ultimoPorc) {
         this.ultimoPorc = ultimoPorc;
+    }
+
+    public Set<Articulo> getArticulos() {
+        return articulos;
+    }
+
+    public void setArticulos(Set<Articulo> articulos) {
+        this.articulos = articulos;
     }
     
     

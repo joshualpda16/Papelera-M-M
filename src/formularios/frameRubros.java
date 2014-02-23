@@ -284,32 +284,28 @@ public class frameRubros extends javax.swing.JInternalFrame {
     }
     
     private void llenarListaRubros(){
-        SwingUtilities.invokeLater(new Runnable(){
-            public void run(){
-                RubroDao rubroDao = new RubroDao();
-                List<Rubro> lista = rubroDao.traerListaRubros();
-                int cant = lista.size();
-                DefaultListModel model = new DefaultListModel();
-                if (0!=cant){
-                    DecimalFormat df = new DecimalFormat("0");
-                    int val = (int) 100/cant;
-                    jProgressBar1.setValue(0);
+        RubroDao rubroDao = new RubroDao();
+        List<Rubro> lista = rubroDao.traerListaRubros();
+        int cant = lista.size();
+        DefaultListModel model = new DefaultListModel();
+        if (0!=cant){
+            DecimalFormat df = new DecimalFormat("0");
+            int val = (int) 100/cant;
+            jProgressBar1.setValue(0);
 
-                    
-                    for(int i=0; i<lista.size(); i++){
-                        model.addElement(lista.get(i).getIdRubro()+" - "+lista.get(i).getNombre());
-                        jProgressBar1.setValue(jProgressBar1.getValue()+val);
-                    }
-                    
-                    jProgressBar1.setValue(100);
-                    hayRubros=true;
-                } else{
-                    hayRubros=false;
-                }
-                listaRubros.setModel(model);
-                BotonesSubRubro(false);
+
+            for(int i=0; i<lista.size(); i++){
+                model.addElement(lista.get(i).getIdRubro()+" - "+lista.get(i).getNombre());
+                jProgressBar1.setValue(jProgressBar1.getValue()+val);
             }
-        });
+
+            jProgressBar1.setValue(100);
+            hayRubros=true;
+        } else{
+            hayRubros=false;
+        }
+        listaRubros.setModel(model);
+        BotonesSubRubro(false);
     }
     
     private void BotonesSubRubro(boolean b){

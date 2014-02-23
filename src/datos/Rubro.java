@@ -13,7 +13,7 @@ import java.util.TreeSet;
 public class Rubro {
     private int idRubro;
     private String nombre;
-    private Set<SubRubro> subRubros = new TreeSet<SubRubro>();
+    private Set<SubRubro> subRubro = new TreeSet<SubRubro>();
     private Set<Articulo> articulos = new TreeSet<Articulo>();
 //    private Set<Articulo> articulos = new TreeSet<Articulo>();
 
@@ -49,11 +49,11 @@ public class Rubro {
     }
 
     public Set<SubRubro> getSubRubros() {
-        return subRubros;
+        return subRubro;
     }
 
     public void setSubRubros(Set<SubRubro> subRubros) {
-        this.subRubros = subRubros;
+        this.subRubro = subRubros;
     }
     
 }

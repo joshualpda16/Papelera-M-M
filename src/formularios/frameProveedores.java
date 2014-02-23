@@ -11,7 +11,6 @@ import datos.Proveedor;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 
 /**
  *
@@ -29,11 +28,7 @@ public class frameProveedores extends javax.swing.JInternalFrame {
                 model.addElement(lista.get(i).getNombre());
             }
             lstProveedores.setModel(model);
-            if(lista.size()>0){
-                hayProveedores=true;
-            } else{
-                hayProveedores=false;
-            }
+            hayProveedores = lista.size()>0;
         }
     });
     
@@ -45,7 +40,7 @@ public class frameProveedores extends javax.swing.JInternalFrame {
     }
     
     private void llenarLista(){
-        subProceso.run();
+        subProceso.start();
     }
 
     /**

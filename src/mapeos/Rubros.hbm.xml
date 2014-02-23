@@ -15,7 +15,7 @@
         <property column="nombre" name="nombre" type="string"/>
 
         
-        <set name='subRubros' table='subRubros'>
+        <set name='subRubro' table='subRubro'>
             <key>
                 <column name="idSubRubro" />
             </key>

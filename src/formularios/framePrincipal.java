@@ -7,6 +7,9 @@
 package formularios;
 
 import clasesPrincipales.Singleton;
+import dao.RubroDao;
+import datos.Rubro;
+import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -38,6 +41,7 @@ public class framePrincipal extends javax.swing.JFrame {
         cmdListar = new javax.swing.JButton();
         cmdVenta = new javax.swing.JButton();
         cmdProveedores = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuArchivo = new javax.swing.JMenu();
         mnuArchivoSalir = new javax.swing.JMenuItem();
@@ -84,6 +88,13 @@ public class framePrincipal extends javax.swing.JFrame {
         cmdProveedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdProveedoresActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Probar Conexión a la DB");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -158,7 +169,9 @@ public class framePrincipal extends javax.swing.JFrame {
                         .addComponent(cmdVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(64, 64, 64)
                         .addComponent(cmdProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 744, Short.MAX_VALUE)))
+                        .addGap(124, 124, 124)
+                        .addComponent(jButton1)
+                        .addGap(0, 416, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -168,7 +181,8 @@ public class framePrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cmdListar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmdVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmdProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmdProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(subEscritorio)
                 .addContainerGap())
@@ -204,6 +218,10 @@ public class framePrincipal extends javax.swing.JFrame {
     private void cmdProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdProveedoresActionPerformed
         sing.ventanaProveedores(true);
     }//GEN-LAST:event_cmdProveedoresActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        List<Rubro> lstRubro = new RubroDao().traerListaRubros();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,6 +271,7 @@ public class framePrincipal extends javax.swing.JFrame {
     public static javax.swing.JButton cmdListar;
     public static javax.swing.JButton cmdProveedores;
     public static javax.swing.JButton cmdVenta;
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu mnuArchivo;
     private javax.swing.JMenuItem mnuArchivoSalir;

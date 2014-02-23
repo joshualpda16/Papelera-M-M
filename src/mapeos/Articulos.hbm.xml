@@ -12,10 +12,12 @@
             <generator class="identity"/>
         </id>
 
+        <!-- column es la columna en la tabla de la BD. Name es el nombre del atributo de la clase a mapear. Type es el tipo de dato -->
+
         <property column="nombre" name="nombre" type="string"/>
+        <property column="stock" name="stock" type="integer"/>
         <property column="precioCompra" name="precioCompra" type="double"/>
         <property column="precioVentaU" name="precioVentaU" type="double"/>
-        <property column="stock" name="stock" type="integer"/>
         <property column="cantPorBulto" name="cantPorBulto" type="integer"/>
         <property column="precioVentaB" name="precioVentaB" type="double"/>
         

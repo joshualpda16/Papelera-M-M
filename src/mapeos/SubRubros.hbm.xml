@@ -16,7 +16,7 @@
         <property column="precioCompra" name="precioCompra" type="double"/>
         <property column="precioVenta" name="precioVenta" type="double"/>
         <property column="ultimoPorc" name="ultimoPorc" type="double"/>
-        <property column="fecUltimaModif" name="fecUltimaModif" type="calendar"/>
+        <property column="fecUltimaModif" name="fecUltimaModif"/>
         
         <set name='articulos' table='articulos'>
             <key>
@@ -29,7 +29,6 @@
         <many-to-one name="rubro" class="datos.Rubro">
             <column name="idRubro" />
         </many-to-one>
-
     </class>
 
 </hibernate-mapping>

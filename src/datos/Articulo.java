@@ -13,11 +13,12 @@ package datos;
 public class Articulo {
     private int idArticulo;
     private String nombre;
+    private int stock;
     private double precioCompra;
     private double precioVentaU;
     private int cantidadPorBulto;
     private double precioVentaB;
-    private int stock;
+    
     private Rubro rubro;
     private SubRubro subRubro;
     private Proveedor proveedor;

@@ -8,7 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class ProveedorDao {
-    private static Session sesion;
+    private Session sesion;
     private Transaction tx;
     
     private void iniciaOperacion() throws HibernateException {
